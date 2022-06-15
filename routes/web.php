@@ -62,9 +62,32 @@ $router->group(['middleware' => 'auth'], function() use ($router){
         $router->delete('/kampung/{id}', 'KampungController@destroy');
 
     });
+
+    //Rukun Warga
+    $router->group(['prefix' => 'masterRukunwarga', 'namespace' => 'masterDesa'], function() use ($router){
+        $router->get('/rukunwarga', 'RukunWargaController@index');
+        $router->post('/rukunwarga', 'RukunWargaController@store');
+        $router->get('/rukunwarga/{id}', 'RukunWargaController@show');
+        $router->post('/rukunwarga/{id}', 'RukunWargaController@update');
+        $router->delete('/rukunwarga/{id}', 'RukunWargaController@destroy');
+
+    });
     
     
 });
+
+
+    //Rukun Tetangga
+    $router->group(['prefix' => 'masterTetangga', 'namespace' => 'masterDesa'], function() use ($router){
+        $router->get('/rukuntetangga', 'RukunTetanggaController@index');
+        $router->post('/rukuntetangga', 'RukunTetanggaController@store');
+        $router->get('/rukuntetangga/{id}', 'RukunTetanggaController@show');
+        $router->post('/rukuntetangga/{id}', 'RukunTetanggaController@update');
+        $router->delete('/rukuntetangga/{id}', 'RukunTetanggaController@destroy');
+
+    });
+
+
 
 
 
