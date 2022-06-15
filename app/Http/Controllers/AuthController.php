@@ -17,7 +17,6 @@ class AuthController extends Controller
     public function register(Request $request){
         $validator = Validator::make($request->all(), [
             'username' => 'required',
-            'no_hp' => 'required|max:12',
             'status' => 'required',
             'password' => 'required|min:6'
         ],
@@ -41,7 +40,7 @@ class AuthController extends Controller
             $password = Hash::make($request->input('password'));
             $users = Users::create([
                 'username'     => $request->input('username'),
-                'no_hp'   => $request->input('no_hp'),
+               
                 'status'   => $request->input('status'),
                 'password'   => $password,
                 
